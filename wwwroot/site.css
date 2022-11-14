@@ -1,0 +1,79 @@
+﻿.container {
+    width: 100%;
+    display: inline-block;
+}
+
+.headerTitle {
+    float: left;
+    display: inline-block;
+}
+
+.headerWelcomeMsg {
+    float: right;
+    display: inline-block;
+}
+
+.menu {
+}
+
+    .menu li {
+        float: left;
+        margin: 0px 20px;
+        list-style: none;
+    }
+
+        .menu li a {
+            color: blue;
+            text-decoration: none;
+           
+        }
+.out {
+    font-size: 30px;
+}
+
+.grid {
+    display: inline-block;
+    width: 100%;
+}
+
+    .grid .rоw {
+        display: inline-block;
+        width: 100%;
+        padding: 2px 0px;
+    }
+
+    .grid .row .col-1 {
+        display: inline-block;
+        width: 150px;
+    }
+
+    .grid .row .col-2 {
+        display: inline-block;
+        width: 300px;
+    }
+
+    .grid .row .col-3 {
+        display: inline-block;
+        width: 450px;
+    }
+
+input[type=text] {
+    width: 296px;
+}
+
+input[type=password] {
+    width: 296px;
+}
+
+.grid.row textarea {
+    width: 296px;
+    height: 150px;
+}
+
+.right {
+    float: right;
+}
+
+.field-validation-error {
+    color: red;
+}

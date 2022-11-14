@@ -1,0 +1,45 @@
+﻿@using izpit.Entities;
+@using izpit.ExtentionMethods;
+@using Microsoft.AspNetCore.Http;
+
+@{
+    User loggedUser = this.ViewContext.HttpContext.Session.GetObject<User>("loggedUser");
+}
+
+<html>
+<head>
+    <title>
+        @ViewData["title"]
+
+    </title>
+    <link href="~/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="headerTitle">Musicify</h1>
+        <span class="headerWelcomeMsg" >Hello, @( loggedUser==null ? "Annonymous" : loggedUser.Username) </span>
+    </div>
+    <div class="container">
+        <ul class="menu">
+            
+            @if (loggedUser != null)
+            {
+                <li><a href="/Profile/Index">MY PROFILE</a></li>
+                <li><a href="/Song/Index">SONGS</a></li>
+                <li><a href="/Playlists/Index">MY PLAYLIST</a></li>
+                <li><a href="/News/Index">NEWS</a></li>
+                <li><a href="/Home/Logout">LOG OUT</a></li>
+            }
+            else
+            {
+
+                <li><a class="out" href="/Home/Login">LOGIN</a></li>
+                <li><a class="out" href="/Home/SignIn">SIGN IN</a></li>
+            }
+        </ul>
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

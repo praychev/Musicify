@@ -1,0 +1,40 @@
+﻿@using izpit.Entities;
+@using izpit.ExtentionMethods;
+@using Microsoft.AspNetCore.Http;
+
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "MY PROFILE";
+}
+
+@{
+    User loggedUser = this.ViewContext.HttpContext.Session.GetObject<User>("loggedUser");
+}
+<div class="grid">
+    <div class="row">
+        <div class="col-1">
+            Username:
+        </div>
+        <div class="col-2">
+            @loggedUser.Username
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1">
+            First Name:
+        </div>
+        <div class="col-2">
+            @loggedUser.FirstName
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1">
+            Last Name
+        </div>
+        <div class="col-2">
+            @loggedUser.LastName
+        </div>
+    </div>
+    <a href="/Profile/Edit">Edit</a>
+    <a href="/Profile/Delete" onclick="return confirm('Delete Record?');">Delete</a>
+</div>

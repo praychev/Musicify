@@ -1,0 +1,85 @@
+﻿@model izpit.ViewModels.Profile.EditVM
+@using izpit.Entities;
+@using izpit.ExtentionMethods;
+@using Microsoft.AspNetCore.Http;
+
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "EDIT USER";
+}
+
+@{
+    User loggedUser = this.ViewContext.HttpContext.Session.GetObject<User>("loggedUser");
+}
+<fieldset>
+    <legend>EDIT PROFILE</legend>
+    <form action="/Profile/Edit" method="post">
+        @Html.HiddenFor(m => m.Id)
+
+        <div class="grid">
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Username)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Username)
+
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Username)
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Password)
+                </div>
+                <div class="col-2">
+                    @Html.PasswordFor(m => m.Password)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Password)
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.FirstName)
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.LastName)
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-3">
+
+                    <a class="right" href="/Profile/Index">BACK</a>
+                    <input type="submit" class="right" value="Save" />
+                </div>
+            </div>
+        </div>
+    </form>
+</fieldset>
+
+

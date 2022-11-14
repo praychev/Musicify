@@ -1,0 +1,31 @@
+﻿@model izpit.ViewModels.Songs.ArtistVM
+
+@using izpit.Entities
+
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "ARTIST";
+}
+<div class="grid">
+    
+    <div class="row">
+        <div class="col-1">Name</div>
+        <div class="col-1">Songs</div>
+
+    </div>
+    @foreach (Artist item in Model.Items)
+    {
+
+
+<div class="row">
+    <div class="col-1">@item.Name</div>
+                 @foreach (Song song in Model.Songs)
+               {
+                     <div class="col-1">@song.Title</div>
+                }
+
+</div>
+        
+    }
+</div>
+

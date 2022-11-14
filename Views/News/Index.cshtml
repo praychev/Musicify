@@ -1,0 +1,21 @@
+﻿@model izpit.ViewModels.New.NewsVM
+
+@using izpit.Entities
+
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "NEWS";
+}
+
+<a href="/News/Create">NEW</a>
+<div class="grid">
+
+    @foreach (News item in Model.Items)
+    {
+        <div class="row">
+            <div class="col-1">@item.Title</div>
+            <div class="col-3">@item.Description</div>
+            <hr>
+        </div>
+    }
+</div>

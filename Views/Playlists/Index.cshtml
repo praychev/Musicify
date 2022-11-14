@@ -1,0 +1,36 @@
+﻿@model izpit.ViewModels.Playlists.IndexVM
+
+@using izpit.Entities
+
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "PLAYLISTS";
+}
+<a href="/Playlists/CreatePlayName">NEW</a>
+
+<div class="grid">
+    <div class="row">
+        @if (Model.Items.Count()>0)
+        {
+        <div class="col-3">Title</div>
+        }
+            else
+            {
+                <p>You still don't have any playlists</p>
+            }
+        
+
+        <div class="col-2"></div>
+    </div>
+    @foreach (Playlist item in Model.Items)
+    {
+        <div class="row">
+            <div class="col-1">
+                <a href="/Playlists/CreateFullPlay?id=@item.Id">
+                    @item.Title
+                </a>
+            </div>
+            <hr>
+        </div>
+    }
+</div>

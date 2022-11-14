@@ -1,0 +1,30 @@
+﻿@model izpit.ViewModels.Songs.IndexVM
+
+@using izpit.Entities
+
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "SONGS";
+}
+<div class="grid">
+    <a href="/Song/Artists/">Artists</a>
+    <div class="row">
+        <div class="col-1">Title</div>
+        <div class="col-1">Genre</div>
+        <div class="col-1">Composer</div>
+    </div>
+    @foreach (Song item in Model.Items)
+    {
+
+
+        @if (item.Id > 1) { 
+          
+        <div class="row">
+            <div class="col-1">@item.Title</div>
+            <div class="col-1">@item.Genre</div>
+            <div class="col-1">@item.Composer</div>
+
+        </div>
+        }
+    }
+</div>

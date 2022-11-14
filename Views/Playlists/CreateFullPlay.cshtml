@@ -1,0 +1,67 @@
+﻿@model izpit.ViewModels.Playlists.CreateFullVM
+@using izpit.Entities
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "CREATE PLAYLIST";
+}
+<hr />
+<h2>@Model.Playlist.Title</h2>
+<hr />
+<div class="grid">
+    <form action="/Playlists/CreateFullPlay" method="post">
+        <input type="hidden" name="PlaylistId" value="@Model.Playlist.Id" />
+
+        @foreach (Song item in Model.Songs)
+        {
+
+
+            @if (item.Id > 1) { 
+
+            <div class="row">
+                <div class="col-3">
+                    <input type="checkbox" name="SongIds" value="@item.Id" />
+                    <span>
+                        @item.Title
+                </span>
+            </div>
+        </div>
+            }
+        }
+        <div class="row">
+            <div class="col-2">
+                <input type="submit" value="Save" />
+            </div>
+        </div>
+    </form>
+    <hr />
+    <h2>Songs in the playlist</h2>
+    <hr />
+    <div class="row">
+        @if (Model.Plays.Count > 0)
+        {
+            <div class="col-2">Name</div>
+        }
+    </div>
+    @foreach (SongsToPlaylist item in Model.Plays)
+    {
+        <div class="row">
+            <div class="col-2">@item.Song.Title</div>
+
+            <div class="col-2">
+                <a href="/Playlists/RemoveSong?id=@item.Id"
+                   onclick="return confirm('Remove Song?');">Remove</a>
+            </div>
+        </div>
+    }
+    <hr />
+<div class="row">
+    <div class="col-2">
+        <a href="/Playlists/Done">done</a>
+    </div>
+    <div class="col-2">
+        <a href="/Playlists/Delete?id=@Model.Playlist.Id"
+           onclick="return confirm('Delete Playlist?');">Delete</a>
+    </div>
+</div>
+    
+</div>

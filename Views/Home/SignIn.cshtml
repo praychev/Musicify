@@ -1,0 +1,75 @@
+﻿@model izpit.ViewModels.Home.SignInVM
+
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "CREATE USER";
+}
+<fieldset>
+    <legend>SIGN IN</legend>
+    <form action="/Home/SignIn" method="post">
+        <div class="grid">
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Username)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Username)
+
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Username)
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Password)
+                </div>
+                <div class="col-2">
+                    @Html.PasswordFor(m => m.Password)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Password)
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.FirstName)
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.LastName)
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-3">
+
+                    <a class="right" href="/Home/Index">BACK</a>
+                    <input type="submit" class="right" value="Save" />
+                </div>
+            </div>
+        </div>
+    </form>
+</fieldset>
+
